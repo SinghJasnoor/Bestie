@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heartwarming Message</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amaze+Script&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Balmoral+Script&display=swap">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #66ccff, #ff99cc);
+    }
+
+    #animationContainer {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #instruction {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #ff3399;
+      font-family: 'Amaze Script', cursive;
+    }
+
+    #flowerGardenTop {
+      position: absolute;
+      top: 10vh;
+      width: 100vw;
+      display: flex;
+      justify-content: space-around;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .flower {
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+    }
+
+    .flower:hover {
+      transform: scale(1.2);
+    }
+
+    #message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      color: #ff3399;
+      font-family: 'Amaze Script', cursive;
+      text-align: center;
+      animation: fadeInOut 5s ease-out forwards;
+    }
+
+    #friendshipText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: #0099cc;
+      font-family: 'Balmoral Script', cursive;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="animationContainer">
+    <div id="instruction">💕 Click on these flowers 💕</div>
+    <div id="flowerGardenTop">
+      <div class="flower" onclick="showFriendshipText('In the tapestry of life, your friendship is the most vibrant thread. Thank you for weaving joy, laughter, and endless support into the fabric of my existence.')">🌸</div>
+      <div class="flower" onclick="showFriendshipText('Gratitude is the language of the heart, and my heart speaks volumes in appreciation for the beautiful symphony of friendship you\'ve composed with me. Thank you for being the melody in my life.')">🌺</div>
+      <div class="flower" onclick="showFriendshipText('A friend like you is a treasure beyond measure. Thank you for being my compass in times of confusion, my anchor in stormy seas, and my sunshine when skies are gray.')">🌼</div>
+      <div class="flower" onclick="showFriendshipText('In the book of my life, you\'re the chapter that stands out with brilliance and warmth. Thank you for scripting moments of happiness, shared laughter, and unwavering companionship.')">🌷</div>
+      <div class="flower" onclick="showFriendshipText('Expressing gratitude for your friendship is like trying to capture the vastness of the ocean in a single drop. Yet, thank you for being the ocean of understanding, empathy, and kindness in my life.')">🌹</div>
+      <div class="flower" onclick="showFriendshipText('Friendship is the art of being there without having to say a word. Your presence alone speaks volumes of comfort, encouragement, and love. Thank you for coloring my world with the hues of genuine friendship.')">💐</div>
+    </div>
+    <div id="message">For My Bestesttttt Friend, Dear Bestie Jiii ❤️</div>
+    <div id="friendshipText"></div>
+  </div>
+
+  <script>
+    let currentText = '';
+
+    function showFriendshipText(text) {
+      const friendshipText = document.getElementById('friendshipText');
+      currentText = text;
+      friendshipText.textContent = text;
+      friendshipText.style.opacity = 1;
+    }
+
+    // Hide text when clicking outside flowers
+    document.addEventListener('click', function(event) {
+      const isFlower = event.target.classList.contains('flower');
+      if (!isFlower) {
+        const friendshipText = document.getElementById('friendshipText');
+        friendshipText.style.opacity = 0;
+        setTimeout(() => {
+          friendshipText.textContent = currentText;
+        }, 500);
+      }
+    });
+  </script>
+</body>
+</html>
